@@ -1,9 +1,1257 @@
 <!DOCTYPE html>
 <html>
   <head><meta name="monetag" content="eb9419efb2efb09a46a3df310f2acfb5"></head>
-<body style="margin:0; background:transparent;">
-  <h1>Hello april from AdHelpTeam</h1>
+  <title>
+   Profile Page
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+/* From Uiverse.io by bociKond */ 
+.main {
+  --clr: #FDFFFC;
+  --clr-text: #1C1D21;
+  --clr1: #018E42;
+  background-color: var(--clr);
+  padding: 1em;
+  padding-bottom: 1.1em;
+  border-radius: 15px;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  outline: 2px solid var(--clr);
+  outline-offset: 3px;
+}
+
+/* new start */
+.top-bar {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: .5rem;
+  list-style: none;
+}
+
+.btn {
+  fill: var(--clr);
+  border: none;
+  width: 2rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.close {
+  background-color: orangered;
+}
+
+.minimize {
+  background-color: var(--clr1);
+}
+
+.songs {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+/* new end */
+
+.loader {
+  display: flex;
+  flex-direction: row;
+  height: 4em;
+  padding-inline: 1em;
+  transform: rotate(180deg);
+  justify-content: right;
+  border-radius: 10px;
+  transition: .4s ease-in-out;
+}
+
+.song > * {
+  transition: .4s ease-in-out;
+}
+
+.loader:hover {
+  cursor: pointer;
+  background-color: var(--clr1);
+  --clr-text: #FDFFFC;
+}
+
+.currentplaying {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  margin: 1em 2rem;
+  padding: .5rem;
+  width: 100%;
+  background-color: #018E42dd;
+  border-radius: .5rem;
+}
+
+.spotify {
+  width: 50px;
+  height: 50px;
+  margin-right: 0.6em;
+}
+
+.heading {
+  color: var(--clr);
+  font-size: 1.1em;
+  font-weight: bold;
+  align-self: center;
+}
+
+.loading {
+  display: flex;
+  margin-top: 1em;
+  margin-left: 0.3em;
+}
+
+.load {
+  width: 2px;
+  height: 33px;
+  background-color: limegreen;
+  animation: 1s move6 infinite;
+  border-radius: 5px;
+  margin: 0.1em;
+}
+
+.load:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.load:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.load:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.play {
+  position: relative;
+  left: 0.35em;
+  height: 1.6em;
+  width: 1.6em;
+  clip-path: polygon(50% 50%, 100% 50%, 75% 6.6%);
+  background-color: var(--clr-text);
+  transform: rotate(-90deg);
+  align-self: center;
+  margin-top: 0.7em;
+  justify-self: center;
+  transition: .4s ease-in-out;
+}
+
+.albumcover {
+  position: relative;
+  margin-right: 1em;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(233, 232, 232);
+  align-self: center;
+  border-radius: 5px;
+}
+
+.song {
+  position: relative;
+  transform: rotate(180deg);
+  margin-right: 1em;
+  color: var(--clr-text);
+  align-self: center;
+}
+
+.artist {
+  font-size: 0.6em;
+  color: var(--clr-text);
+}
+
+@keyframes move6 {
+  0% {
+    height: 0.2em;
+  }
+
+  25% {
+    height: 0.7em;
+  }
+
+  50% {
+    height: 1.5em;
+  }
+
+  100% {
+    height: 0.2em;
+  }
+}
+/* Use CSS variables for better maintainability */
+:root {
+    --primary-color: #29825b;
+    --secondary-color: #2b3a42;
+    --text-color: #ffffff;
+    --hover-color: rgba(41, 130, 91, 0.5);
+    --transition-speed: 0.3s;
+}
+
+/* Use modern CSS features */
+.menu-item {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+/* Add smooth loading animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Add these styles to your existing CSS */
+.faq-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #2b3a42;
+    z-index: 100;
+    padding: 10px 0;
+}
+
+.back-button {
+    width: auto;
+    padding: 10px 20px;
+    margin-right: 20px;
+}
+
+.faq-title {
+    margin: 0;
+    color: #ffffff;
+}
+
+.faq-question {
+    background-color: #333;
+    border: 2px solid #29825b;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+/* Add fade effect when approaching header */
+.faq-question::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to top, rgba(43, 58, 66, 0), rgba(43, 58, 66, 1));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.faq-question:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+}
+
+/* Show fade effect when question approaches header */
+.faq-question.fade-active::before {
+    opacity: 1;
+}
+
+.email-button {
+    background-color: #29825b;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #29825b;
+    max-width: 100%;
+}
+
+.email-button i {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.email-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(41, 130, 91, 0.8);
+    background-color: #1e5f3a;
+    border-color: #fff;
+    border-radius: 30px;
+}
+
+.email-button:hover i {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+.back-button {
+    cursor: pointer;
+    width: auto;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 20px; /* Curved edges */
+    transition: transform 0.3s, padding 0.3s, box-shadow 0.3s;
+    transform-origin: center;
+    /* Isolate the button's layer to prevent affecting other elements */
+    isolation: isolate;
+    z-index: 1;
+}
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.back-button:hover {
+    transform: scale(1.1); /* Scale up by 10% */
+    box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+}
+.faq-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #2b3a42;
+    z-index: 100;
+    padding: 10px 0;
+}
+
+.back-button {
+    width: auto;
+    padding: 10px 20px;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+.faq-title {
+    margin: 0;
+    color: #ffffff;
+}
+.faq-title {
+    color: var(--text-color, #ffffff);
+    transition: color 0.3s;
+}
+
+.faq-question {
+    background-color: #333;
+    border: 2px solid #29825b;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.faq-question:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+}
+
+.faq-question h3 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.faq-question p {
+    margin-bottom: 0;
+    color: #f0f0f0;
+}
+
+   body {
+            font-family: Arial, sans-serif;
+            background-color: #2b3a42;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+	    overflow-y: auto;
+	    position: relative;
+	    padding-bottom: 70px;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            padding-bottom: 100px; /* Ensure content is not hidden under the fixed navigator bar */
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 2px solid #29825b;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .profile-header .profile-picture-container {
+            position: relative;
+            margin-right: 20px;
+        }
+        .profile-header .profile-picture-container img {
+            border-radius: 10px; /* Square shape with curved edges */
+            width: 80px;
+            height: 80px;
+        }
+        .profile-header .profile-picture-container .edit-button {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #29825b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, width 0.3s, height 0.3s;
+            user-select: none; /* Disable text selection */
+        }
+        .profile-header .profile-picture-container .edit-button:hover {
+            width: 28px;
+            height: 28px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #1e5f3a;
+            box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+        }
+        .profile-header .profile-picture-container .edit-button img {
+            width: 100%;
+            height: 100%;
+        }
+        .profile-header .profile-picture-container .edit-button .tooltip {
+            visibility: hidden;
+            width: 80px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 125%; /* Position to the right of the button */
+            margin-top: -20px; /* Center the tooltip vertically */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+.menu-item, .balance-item, .footer-item, .faq-question {
+    --hover-color: rgba(41, 130, 91, 0.5);
+}
+
+.menu-item:hover, .balance-item:hover, .footer-item:hover, .faq-question:hover {
+    box-shadow: 0 0 10px 5px var(--hover-color);
+}
+
+        .profile-header .profile-picture-container .edit-button .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%; /* Arrow at the left */
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #555 transparent transparent;
+        }
+        .profile-header .profile-picture-container .edit-button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .profile-header .profile-info {
+            font-size: 24px;
+        }
+        .profile-header .profile-info .username {
+            font-size: 24px; /* Smaller font size for mobile */
+            margin-right: 10px;
+        }
+        .profile-header .profile-info .user-id-container {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .profile-header .profile-info .user-id {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        .profile-header .profile-info .copy-button {
+            background-color: #29825b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            user-select: none; /* Disable text selection */
+        }
+        .profile-header .profile-info .copy-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #1e5f3a;
+            box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+        }
+        .profile-header .profile-info .copy-button img {
+            width: 100%;
+            height: 100%;
+        }
+        .profile-header .profile-info .copy-button .tooltip {
+            visibility: hidden;
+            width: 80px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the button */
+            left: 50%;
+            margin-left: -40px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .profile-header .profile-info .copy-button .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* Arrow at the bottom */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .profile-header .profile-info .copy-button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .balance-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .balance-item {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+            border: 2px solid #29825b;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            max-width: 45%;
+            user-select: none; /* Disable text selection */
+        }
+        .balance-item:first-child {
+            margin-left: 0;
+        }
+        .balance-item:last-child {
+            margin-right: 0;
+        }
+        .balance-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #1e5f3a;
+            box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+        }
+	/* Add more breakpoints for better responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .balance-container {
+        flex-direction: column;
+    }
+    
+    .balance-item {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-header .profile-info .username {
+        font-size: 20px;
+    }
+    
+    .footer {
+        padding: 5px;
+    }
+    
+    .footer .footer-item span {
+        font-size: 12px;
+    }
+}
+
+        .balance-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .balance-item .amount {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu {
+            margin-bottom: 20px;
+        }
+        .menu .menu-item {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            border: 2px solid #29825b;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            user-select: none; /* Disable text selection */
+            cursor: pointer;
+        }
+        .menu .menu-item:hover {
+            background-color: #444;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #1e5f3a;
+            box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+        }
+        .menu .menu-item i {
+            margin-right: 10px;
+        }
+        .menu .menu-item:last-child {
+            margin-bottom: 0;
+        }
+        .footer {
+    /* Keep your existing footer styles and add/modify these properties */
+    position: fixed;
+    bottom: 20px;
+    width: calc(100% - 40px);
+    max-width: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Add this to ensure footer stays on top */
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #29825b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+        .footer .footer-item {
+            text-align: center;
+            flex: 1;
+            margin: 0 5px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .footer .footer-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #1e5f3a;
+            box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+        }
+        .footer .footer-item img {
+            width: 30px;
+            height: 30px;
+        }
+        .footer .footer-item span {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 10px;
+            border: 2px solid #29825b;
+            border-radius: 10px;
+            padding: 10px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            user-select: none; /* Disable text selection */
+        }
+        .toggle-switch:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #1e5f3a;
+            box-shadow: 0 0 10px 5px rgba(41, 130, 91, 0.5);
+        }
+        .toggle-switch input {
+            display: none;
+        }
+        .toggle-switch label {
+            background-color: #333;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 50px;
+            border: 2px solid #29825b;
+            margin-left: 10px;
+            background-image: url('https://storage.googleapis.com/a1aa/image/1NorxkppO7JvKtutTxIvcvQC5G4Lbu0frVxA6PM2EyWa4G7JA.jpg'); /* Stars background */
+            background-size: cover;
+        }
+        .toggle-switch label::after {
+            content: '';
+            background-image: url('https://storage.googleapis.com/a1aa/image/1NorxkppO7JvKtutTxIvcvQC5G4Lbu0frVxA6PM2EyWa4G7JA.jpg'); /* Moon icon */
+            background-size: cover;
+            border-radius: 50%;
+            height: 20px;
+            left: 2px;
+            position: absolute;
+            top: 2px;
+            transition: 0.3s;
+            width: 20px;
+        }
+        .toggle-switch input:checked + label {
+            background-image: url('https://storage.googleapis.com/a1aa/image/6ePFfXIFV5hFP0gWlylCn8WrrKccF8YVzPUkc9PwqI51wN2TA.jpg'); /* Clouds background */
+        }
+        .toggle-switch input:checked + label::after {
+            left: 28px;
+            background-image: url('https://storage.googleapis.com/a1aa/image/6ePFfXIFV5hFP0gWlylCn8WrrKccF8YVzPUkc9PwqI51wN2TA.jpg'); /* Sun icon */
+        }
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2b3a42;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #29825b;
+            border-radius: 10px;
+            border: 3px solid #2b3a42;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #1e5f3a;
+        }
+        @media (max-width: 600px) {
+            .profile-header {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+            }
+            .profile-header img {
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+            .profile-header .profile-info .username {
+                font-size: 24px; /* Smaller font size for mobile */
+            }
+            .balance-container {
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+            .balance-item {
+                flex: 1 1 45%;
+                margin: 10px 5px;
+            }
+            .footer {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                bottom: 20px; /* Ensure it floats above the content */
+            }
+            .footer .footer-item {
+                flex: 1 1 20%;
+                margin: 5px;
+            }
+        }
+.menu-item, .balance-item {
+    --hover-color: rgba(41, 130, 91, 0.5);
+}
+
+.menu-item:hover, .balance-item:hover {
+    box-shadow: 0 0 10px 5px var(--hover-color);
+}
+
+  </style>
+  <script>
+// Theme management functionality
+const themeManager = {
+    STORAGE_KEY: 'darkMode',
+    
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                this.setupTheme();
+            } catch (error) {
+                console.error('Failed to initialize theme:', error);
+                this.applyDefaultTheme();
+            }
+        });
+    },
+
+    setupTheme() {
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        
+        if (!darkModeToggle) {
+            throw new Error('Dark mode toggle element not found');
+        }
+
+        const savedDarkMode = localStorage.getItem(this.STORAGE_KEY);
+        
+        if (savedDarkMode !== null) {
+            const isDarkMode = savedDarkMode === 'true';
+            darkModeToggle.checked = !isDarkMode;
+            this.applyTheme(!darkModeToggle.checked);
+        } else {
+            localStorage.setItem(this.STORAGE_KEY, !darkModeToggle.checked);
+            this.applyTheme(!darkModeToggle.checked);
+        }
+
+        darkModeToggle.addEventListener('change', (e) => {
+            const isDarkMode = !e.target.checked;
+            localStorage.setItem(this.STORAGE_KEY, isDarkMode);
+            this.applyTheme(isDarkMode);
+        });
+    },
+
+    applyTheme(isDarkMode) {
+        const body = document.body;
+        const menuItems = document.querySelectorAll('.menu-item');
+        const balanceItems = document.querySelectorAll('.balance-item');
+        const footer = document.querySelector('.footer');
+        const profileHeader = document.querySelector('.profile-header');
+        const toggleSwitch = document.querySelector('.toggle-switch');
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        const faqTitle = document.querySelector('#help-faqs h2');
+        const username = document.querySelector('.username');
+        const userId = document.querySelector('.user-id');
+        const amounts = document.querySelectorAll('.amount');
+        const footerTexts = document.querySelectorAll('.footer-item span');
+        const darkModeText = document.querySelector('.toggle-switch span');
+        
+        if (isDarkMode) {
+            // Dark mode
+            body.style.backgroundColor = '#2b3a42';
+            body.style.color = '#ffffff';
+            if(footer) footer.style.backgroundColor = '#333';
+            if(footer) footer.style.borderColor = '#29825b';
+            if(profileHeader) profileHeader.style.borderColor = '#29825b';
+            if(toggleSwitch) toggleSwitch.style.borderColor = '#29825b';
+            if(faqTitle) faqTitle.style.color = '#ffffff';
+            if(username) username.style.color = '#ffffff';
+            if(userId) userId.style.color = '#ffffff';
+            if(darkModeText) darkModeText.style.color = '#ffffff';
+            
+            amounts.forEach(amount => {
+                amount.style.color = '#ffffff';
+            });
+
+            footerTexts.forEach(text => {
+                text.style.color = '#ffffff';
+            });
+            
+            menuItems.forEach(item => {
+                item.style.backgroundColor = '#333';
+                item.style.borderColor = '#29825b';
+                item.style.color = '#ffffff';
+                item.style.setProperty('--hover-color', 'rgba(41, 130, 91, 0.5)');
+            });
+            
+            balanceItems.forEach(item => {
+                item.style.backgroundColor = '#333';
+                item.style.borderColor = '#29825b';
+                item.style.color = '#ffffff';
+                item.style.setProperty('--hover-color', 'rgba(41, 130, 91, 0.5)');
+            });
+
+            faqQuestions.forEach(item => {
+                if(item) {
+                    item.style.backgroundColor = '#333';
+                    item.style.borderColor = '#29825b';
+                    item.style.color = '#ffffff';
+                    const h3 = item.querySelector('h3');
+                    const p = item.querySelector('p');
+                    if(h3) h3.style.color = '#ffffff';
+                    if(p) p.style.color = '#f0f0f0';
+                }
+            });
+        } else {
+            // Light mode
+            body.style.backgroundColor = '#ffffff';
+            body.style.color = '#000000';
+            if(footer) footer.style.backgroundColor = '#f0f0f0';
+            if(footer) footer.style.borderColor = '#000000';
+            if(profileHeader) profileHeader.style.borderColor = '#000000';
+            if(toggleSwitch) toggleSwitch.style.borderColor = '#000000';
+            if(faqTitle) faqTitle.style.color = '#000000';
+            if(username) username.style.color = '#000000';
+            if(userId) userId.style.color = '#000000';
+            if(darkModeText) darkModeText.style.color = '#000000';
+            
+            amounts.forEach(amount => {
+                amount.style.color = '#000000';
+            });
+
+            footerTexts.forEach(text => {
+                text.style.color = '#000000';
+            });
+            
+            menuItems.forEach(item => {
+                item.style.backgroundColor = '#f0f0f0';
+                item.style.borderColor = '#000000';
+                item.style.color = '#000000';
+                item.style.setProperty('--hover-color', 'rgba(0, 0, 0, 0.2)');
+            });
+            
+            balanceItems.forEach(item => {
+                item.style.backgroundColor = '#f0f0f0';
+                item.style.borderColor = '#000000';
+                item.style.color = '#000000';
+                item.style.setProperty('--hover-color', 'rgba(0, 0, 0, 0.2)');
+            });
+
+            faqQuestions.forEach(item => {
+                if(item) {
+                    item.style.backgroundColor = '#f0f0f0';
+                    item.style.borderColor = '#000000';
+                    item.style.color = '#000000';
+                    const h3 = item.querySelector('h3');
+                    const p = item.querySelector('p');
+                    if(h3) h3.style.color = '#000000';
+                    if(p) p.style.color = '#000000';
+                }
+            });
+        }
+    },
+
+    applyDefaultTheme() {
+        this.applyTheme(false);
+    }
+};
+
+// Initialize theme management
+themeManager.init();
+
+// Remove any existing onclick handler from HTML
+document.getElementById('dark-mode-toggle').removeAttribute('onclick');
+
+   document.addEventListener('scroll', function() {
+    const header = document.querySelector('.faq-header');
+    const questions = document.querySelectorAll('.faq-question');
+    const headerBottom = header.getBoundingClientRect().bottom;
+    
+    questions.forEach(question => {
+        const questionTop = question.getBoundingClientRect().top;
+        if (questionTop <= headerBottom + 50) {
+            question.classList.add('fade-active');
+        } else {
+            question.classList.remove('fade-active');
+        }
+    });
+});
+   function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = document.getElementById('dark-mode-toggle').checked;
+    const menuItems = document.querySelectorAll('.menu-item');
+    const balanceItems = document.querySelectorAll('.balance-item');
+    const footer = document.querySelector('.footer');
+    const profileHeader = document.querySelector('.profile-header');
+    const toggleSwitch = document.querySelector('.toggle-switch');
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    const faqTitle = document.querySelector('#help-faqs h2');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    if (isDarkMode) {
+        // Light mode
+        body.style.backgroundColor = '#ffffff';
+        body.style.color = '#000000';
+        footer.style.backgroundColor = '#f0f0f0';
+        footer.style.borderColor = '#000000';
+        profileHeader.style.borderColor = '#000000';
+        toggleSwitch.style.borderColor = '#000000';
+        faqTitle.style.color = '#000000';  // Add this line
+        
+        menuItems.forEach(item => {
+            item.style.backgroundColor = '#f0f0f0';
+            item.style.borderColor = '#000000';
+            // Update hover effect to black in light mode
+            item.style.setProperty('--hover-color', 'rgba(0, 0, 0, 0.2)');
+        });
+        
+        balanceItems.forEach(item => {
+            item.style.backgroundColor = '#f0f0f0';
+            item.style.borderColor = '#000000';
+            // Update hover effect to black in light mode
+            item.style.setProperty('--hover-color', 'rgba(0, 0, 0, 0.2)');
+        });
+	faqQuestions.forEach(item => {
+            item.style.backgroundColor = '#f0f0f0';
+            item.style.borderColor = '#000000';
+            item.style.color = '#000000';
+            item.querySelector('h3').style.color = '#000000';
+            item.querySelector('p').style.color = '#000000';
+        });
+    } else {
+        // Dark mode
+        body.style.backgroundColor = '#2b3a42';
+        body.style.color = '#ffffff';
+        footer.style.backgroundColor = '#333';
+        footer.style.borderColor = '#29825b';
+        profileHeader.style.borderColor = '#29825b';
+        toggleSwitch.style.borderColor = '#29825b';
+        faqTitle.style.color = '#ffffff';  // Add this line
+        
+        menuItems.forEach(item => {
+            item.style.backgroundColor = '#333';
+            item.style.borderColor = '#29825b';
+            // Restore green hover effect in dark mode
+            item.style.setProperty('--hover-color', 'rgba(41, 130, 91, 0.5)');
+        });
+        
+        balanceItems.forEach(item => {
+            item.style.backgroundColor = '#333';
+            item.style.borderColor = '#29825b';
+            // Restore green hover effect in dark mode
+            item.style.setProperty('--hover-color', 'rgba(41, 130, 91, 0.5)');
+        });
+	faqQuestions.forEach(item => {
+            item.style.backgroundColor = '#333';
+            item.style.borderColor = '#29825b';
+            item.style.color = '#ffffff';
+            item.querySelector('h3').style.color = '#ffffff';
+            item.querySelector('p').style.color = '#f0f0f0';
+        });
+    }
+}
+
+
+
+// Add better error handling for operations
+async function copyUserId() {
+    try {
+        const userId = document.querySelector('.user-id').textContent.trim();
+        await navigator.clipboard.writeText(userId);
+        showTooltip('Copied!');
+    } catch (error) {
+        console.error('Copy failed:', error);
+        showTooltip('Failed to copy', 'error');
+    }
+}
+
+function showTooltip(message, type = 'success') {
+    const tooltip = document.querySelector('.copy-button .tooltip');
+    tooltip.textContent = message;
+    tooltip.className = `tooltip ${type}`;
+    setTimeout(() => {
+        tooltip.textContent = 'Copy Text';
+        tooltip.className = 'tooltip';
+    }, 2000);
+}
+
+   function showHelpFaqs() {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('help-faqs').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('help-faqs').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+	// Debounce the scroll event handler
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Use debounced scroll handler
+document.addEventListener('scroll', debounce(function() {
+    const header = document.querySelector('.faq-header');
+    const questions = document.querySelectorAll('.faq-question');
+    // ... rest of your scroll handling code
+}, 150));
+
+  </script>
+ </head>
+ <body>
+   <h1>Hello april from AdHelpTeam</h1>
   <p>Verify my this site please!</p><br>
-  <p>Sgamers is gaming platform for gamers who cannot afford their favourate in-game currency.</p>
-</body>
+  <div class="container" id="main-content">
+   <div class="profile-header">
+    <div class="profile-picture-container">
+     <img alt="Profile Picture of Sarthak Budhiraja" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/41pA9jwFWfXaQyHyS2krCW84NAgf16nwsNITbtGQfPRq6usnA.jpg" width="80"/>
+     <button class="edit-button">
+      <img alt="Edit Icon" height="24" loading="lazy" src="https://storage.googleapis.com/a1aa/image/NDl0laQcGnreJSOvsO7eJf7vJnKWtYSsmexfR7G3j0chr7yeE.jpg" width="24"/>
+      <span class="tooltip">
+       Edit Avatar
+      </span>
+     </button>
+    </div>
+    <div class="profile-info">
+     <div class="username">
+      Sarthak Budhiraja
+     </div>
+     <div class="user-id-container">
+      <div class="user-id">
+       DKURXG
+      </div>
+      <button class="copy-button" onclick="copyUserId()">
+       <img alt="Copy Icon" height="24" loading="lazy" src="https://storage.googleapis.com/a1aa/image/NDl0laQcGnreJSOvsO7eJf7vJnKWtYSsmexfR7G3j0chr7yeE.jpg" width="24"/>
+       <span class="tooltip">
+        Copy Text
+       </span>
+      </button>
+     </div>
+    </div>
+   </div>
+   <div class="balance-container">
+    <div class="balance-item">
+     <img alt="Icon representing Scoins" height="50" loading="lazy" src="https://storage.googleapis.com/a1aa/image/AbYcEHZssG50GRvgd3dnyAOof4ewafaPB16RihIMF9kv6usnA.jpg" width="50"/>
+     <div class="amount">
+      0 Scoins
+     </div>
+    </div>
+    <div class="balance-item">
+     <img alt="Icon representing Tickets" height="50" loading="lazy" src="https://storage.googleapis.com/a1aa/image/OvnOfEdisJQiGSctDL6dtIWTw0ejnEONxmYq80ENWZCddX2TA.jpg" width="50"/>
+     <div class="amount">
+      0 Tickets
+     </div>
+    </div>
+   </div>
+   <div class="menu">
+    <div class="menu-item">
+     <i class="fas fa-history">
+     </i>
+     Account History
+    </div>
+    <div class="menu-item">
+     <i class="fas fa-trophy">
+     </i>
+     My Rewards
+    </div>
+    <div class="menu-item" onclick="showHelpFaqs()">
+     <i class="fas fa-question-circle">
+     </i>
+     Help/FAQs
+    </div>
+    <div class="menu-item" onclick="window.location.href='https://sarthakpubgsp.wixsite.com/sgamers/about'">
+     <i class="fas fa-lock">
+     </i>
+     Privacy Policy
+    </div>
+    <div class="menu-item" onclick="window.location.href='https://sarthakpubgsp.wixsite.com/sgamers/about-1'">
+     <i class="fas fa-file-alt">
+     </i>
+     Terms &amp; Conditions
+    </div>
+    <div class="toggle-switch">
+     <i class="fas fa-moon">
+     </i>
+     <input id="dark-mode-toggle" type="checkbox" onchange="toggleDarkMode()"/>
+     <label for="dark-mode-toggle">
+     </label>
+     <span>
+      Dark/Light
+     </span>
+    </div>
+</div>
+   </div>
+  </div>
+  <div class="footer">
+    <div class="footer-item">
+        <img alt="Home Icon" height="30" loading="lazy" src="https://storage.googleapis.com/a1aa/image/2HQUemeP8ajfSpU7jflXe70Yh00yFWQ4l4bGfauaif9AwuL7JA.jpg" width="30"/>
+        <span>Home</span>
+    </div>
+    <div class="footer-item">
+        <img alt="Reward Icon" height="30" loading="lazy" src="https://storage.googleapis.com/a1aa/image/jhpHovA4FP4mDZ0XfxFwyfAODLQcf8YVzPUkc9PwqI51wN2TA.jpg" width="30"/>
+        <span>Reward</span>
+    </div>
+    <div class="footer-item">
+        <img alt="Game Icon" height="30" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1NorxkppO7JvKtutTxIvcvQC5G4Lbu0frVxA6PM2EyWa4G7JA.jpg" width="30"/>
+        <span>Game</span>
+    </div>
+    <div class="footer-item">
+        <img alt="Profile Icon" height="30" src="https://storage.googleapis.com/a1aa/image/yMO3vv3z7f2kXq2jrhgHBT3sg0wnJLbHcf3oKIPmXeG5hbsnA.jpg" width="30"/>
+        <span>Profile</span>
+    </div>
+</div>
+  </div>
+<div id="help-faqs" style="display: none;" class="container">
+    <div class="faq-header">
+        <div class="menu-item back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </div>
+        <h2 class="faq-title">Help & FAQs</h2>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>How do I earn Scoins?</h3>
+            <p>You can earn Scoins by participating in games and daily activities.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>How do I use my Tickets?</h3>
+            <p>Tickets can be used to enter special events and tournaments.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>Why Transaction is pending?</h3>
+            <p>It takes upto 2 days/48 hours to complete transaction.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>Why transaction is rejected?</h3>
+            <p>If suspicious activity is reviewed by our team is detected as follows:</p>
+            <ul>
+                <li>Use app clone method to fraud referral system</li>
+                <li>Use VPN/Proxy to earn more scoins</li>
+            </ul>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>Why a Transaction Refunded?</h3>
+            <p>May be your given credentials are incorrect</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <h3>I have some complaint/suggestions</h3>
+            <p>By E-Mail us to give your complaint/suggestion</p>
+        </div>
+    </div>
+    <div class="email-button" onclick="window.location.href='mailto:sgamerscontact@gmail.com'">
+        <i class="fas fa-envelope"></i>
+        <span>Email Us</span>
+    </div>
+</div>
 </html>
